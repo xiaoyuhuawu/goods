@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+ <html>
+ <head>
+    <title>table</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<link rel="shortcut icon" href="./img/icon.png">
+ </head>
+ 
+ <body>
+	<div id="box">
+		<div id="btnContent">
+			<button id="inp">输入表单</button>
+			<button id="del">删除</button>
+			<button id="allDel">全部删除</button>
+			<button id="bgImg">换肤</button>
+		</div>
+		
+		<form action="#" method="get" id="forms">
+			<p>姓名:<input type="text" placeholder="输入姓名" id="names"></p>
+			<p>
+				性别:<input type="radio" name="sex" id="male" value="男" checked><label for="male">男</label>
+					 <input type="radio" name="sex" id="female" value="女"><label for="female">女</label>
+			</p>
+			<p>电话:<input type="text" placeholder="输入电话" id="tel"></p>
+			<p><input type="button" id="sends" value="添加"><input type="reset" id="cancel"></p>
+		</form>
+
+		<table class="info-table" id="table" border>
+			<colgroup>
+				<col><col class="two"><col><col class="four"><col class="five">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>编号</th>
+					<th>姓名</th>
+					<th>性别</th>
+					<th>电话</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+	</div>
+
+	<script src="./js/index.js"></script>
+
+ </body>
+</html>

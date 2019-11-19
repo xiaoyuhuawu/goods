@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <html>
+ <head>
+    <title> New Document </title>
+ </head>
+ 
+ <body>
+	<button onclick="addElement()">添加</button>
+	<div id="box"></div>
+
+	<script>
+		function addElement() {
+			var oBox = document.getElementById("box"),
+				oEle = document.createElement("p"),
+				oTxt = document.createTextNode("Hello World")
+
+			oEle.appendChild(oTxt)
+			oBox.appendChild(oEle)
+		}
+	</script>
+
+ </body>
+</html>

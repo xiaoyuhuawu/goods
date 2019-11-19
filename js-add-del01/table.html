@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+ <html>
+ <head>
+    <title>table</title>
+	<style>
+		#box,
+		#btnCon {
+			width: 530px;
+			text-align: center;
+			margin: 30px auto
+		}
+
+		.add,
+		.del,
+		.allDel {
+			width: 120px;
+			height: 34px;
+			background-color: skyblue;
+			border-radius: 5px;
+			color: #777;
+			font: bolder 18px/1 '幼圆';
+			outline-color: #fff
+		}
+	
+        table{
+			width: 530px;
+            border-collapse: collapse
+        }
+       
+		th {
+			width: 103px;
+			height: 30px;
+			border: 1px solid #ccf;
+			background-color: rgb(0, 0, 70, .1)
+		}
+
+        /* tr, */
+		td {
+            width: 103px;
+            height: 30px;
+            border: 1px solid skyblue;
+			text-align: center
+        }
+
+		tr:hover {
+			background-color: rgba(255, 0, 0, .3)
+		}
+    </style>
+ </head>
+ 
+ <body>
+	<div id="box">
+		<div id="btnCon">
+			<button class="add" onclick="add()">添加</button>
+			<button class="del" onclick="del()">删除</button>
+			<button class="allDel" onclick="allDel()">全部删除</button>
+		</div>
+		<table class="info-table" id="table" border>
+			<tr>
+				<th>ID</th>
+				<th>编号</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>电话</th>
+			</tr>
+			<tbody>
+				<!-- <tr>
+					<td>1</td>
+					<td>001</td>
+					<td>老王</td>
+					<td>男</td>
+					<td>11122111111</td>
+				</tr> -->
+				<!-- <tr>
+					<td>2</td>
+					<td>002</td>
+					<td>老张</td>
+					<td>男</td>
+					<td>11111133111</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>003</td>
+					<td>老李</td>
+					<td>男</td>
+					<td>11111341111</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>004</td>
+					<td>老哥</td>
+					<td>男</td>
+					<td>11111643111</td>
+				</tr> -->
+			</tbody>
+		</table>
+	</div>
+
+	<script>
+		var num = 0,
+			names = ['张三', '李四', '小张', '王婆', '小李', '李老头'],
+			tel = ['18147294721', '15137291721', '13137291711', '14143398821', '18057254820'],
+			sex = ['男', '女'];
+		// 添加
+		function add() {
+			var n = 5,
+				tdArr = [];
+
+			for (var i = 0; i < n; i++) {
+				var td = document.createElement( 'td' )
+				tdArr.push( td )
+			}
+			
+			
+			num += 1
+			ni = parseInt( Math.random()*names.length )
+			si = parseInt( Math.random()*sex.length )
+			ti = parseInt( Math.random()*tel.length )
+
+			var t1 = document.createTextNode( num ),
+				t2 = document.createTextNode( '00' + num ),
+				t3 = document.createTextNode( names[ni] ),
+				t4 = document.createTextNode( sex[si] ),
+				t5 = document.createTextNode( tel[ti] );
+
+			var txtArr = [t1, t2, t3, t4, t5]
+			for (var j = 0; j < n; j++) {
+				tdArr[j].appendChild( txtArr[j] )
+			}
+
+			// 将td添加到td中
+			var tr = document.createElement( 'tr' )
+			for (var m = 0; m < n; m++) {
+				tr.appendChild( tdArr[m] )	
+			}
+
+			// 將tr添加到tbody
+			var tbody = document.getElementsByTagName( 'tbody' )[0]
+			tbody.appendChild( tr )
+		}
+
+		// 删除
+		var tbody = document.getElementsByTagName( 'tbody' )[0],
+			trs = document.getElementsByTagName( 'tr' )
+			
+		function del() {
+			if ( trs.length <= 1 )
+				alert( '无数据可删' )
+			else
+				tbody.removeChild( trs[trs.length-1] )
+		}
+		
+		// 全删
+		function allDel() {
+			trsArr = [...trs]
+			console.log( trsArr.length-1 )
+			if ( trs.length <= 1 ) {
+				alert( '无数据可删' )
+			} else {
+				for (var i = trsArr.length-1; i >= 1; i-- ) {
+					console.log( tbody.removeChild( trsArr[i] ) )
+				}
+			}
+		}
+    </script>
+
+ </body>
+</html>
